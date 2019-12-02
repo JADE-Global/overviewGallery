@@ -5,6 +5,8 @@ const app = express();
 app.set('port', 3000);
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
 
+// GET /overviewgallery/:restaurantId
+
 app.get('/', (req, res) => { 
     res.status(200).send('Hello World!');
 });

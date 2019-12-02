@@ -6,6 +6,7 @@ USE yelp;
 CREATE TABLE users (
   id INT AUTO_INCREMENT NOT NULL,
   name VARCHAR(255) NOT NULL,
+  avatar_url VARCHAR(255),
   friendCount INT DEFAULT 0,
   starCount INT DEFAULT 0,
   eliteYear INT DEFAULT NULL,
