@@ -3,6 +3,23 @@ CREATE DATABASE yelp;
 
 USE yelp;
 
+CREATE TABLE users (
+  id INT AUTO_INCREMENT NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  friendCount INT DEFAULT 0,
+  starCount INT DEFAULT 0,
+  eliteYear INT DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE locations (
+  id INT AUTO_INCREMENT NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  ownerId INT,
+  PRIMARY KEY (id),
+  FOREIGN KEY (ownerId) REFERENCES users(id)
+);
+
 CREATE TABLE images (
   id INT AUTO_INCREMENT NOT NULL,
   img_url VARCHAR(255) NOT NULL,
@@ -15,25 +32,9 @@ CREATE TABLE images (
   FOREIGN KEY (ownerId) REFERENCES users(id)
 );
 
-CREATE TABLE locations (
-  id INT AUTO_INCREMENT NOT NULL,
-  name VARCHAR(255) NOT NULL,
-  ownerId INT,
-  PRIMARY KEY (id),
-  FOREIGN KEY (ownerId) REFERENCES users(id)
-);
-
-CREATE TABLE users (
-  id INT AUTO_INCREMENT NOT NULL,
-  name VARCHAR(255) NOT NULL,
-  friendCount INT DEFAULT 0,
-  starCount INT DEFAULT 0,
-  eliteYear INT DEFAULT NULL,
-  PRIMARY KEY (id)
-);
 
 
 /*  Execute this file from the command line by typing:
- *    mysql -h localhost -u root -p < server/schema.sql
+ *    mysql -h localhost -u user -p < ./database/schema.sql
  *  to create the database and the tables.*/
 
