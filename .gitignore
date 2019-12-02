@@ -1,0 +1,9 @@
+
+# Compiled Dirs
+dist/
+
+# Dependency directorys
+node_modules/
+
+# API keys
+database/config/aws.js
