@@ -2,7 +2,6 @@ const faker = require('faker');
 const db = require('./index.js');
 
 const aws_url = 'https://yelp-overview-gallery.s3-us-west-1.amazonaws.com/images/'
-// https://yelp-overview-gallery.s3-us-west-1.amazonaws.com/images/0/0.jpg
 
 const USER_COUNT = 100;
 const LOCATION_COUNT = 100;
