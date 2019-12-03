@@ -2,7 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { mount } from 'enzyme';
 
-import OverviewGallery from './components/overviewGallery.jsx';
+// import OverviewGallery from './components/overviewGallery.jsx';
+import OverviewGallery from '../client/src/components/overviewGallery.jsx';
 
 describe('OverviewGallery', () => {
 

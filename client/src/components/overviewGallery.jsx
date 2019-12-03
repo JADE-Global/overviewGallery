@@ -48,8 +48,7 @@ class OverviewGallery extends React.Component {
         <h1>Overview Gallery</h1>
         {/* <div><Carousel images={this.state.images} /></div> */}
         
-        <button onClick={this.togglePopup}>A Button</button>  
-
+        <button onClick={this.togglePopup}>A Button</button>
         {this.state.showPopup ? <Popup text='Beware.' closePopup={this.togglePopup.bind(this)} /> : null}
       </div>
     );
