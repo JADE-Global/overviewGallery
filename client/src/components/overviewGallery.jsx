@@ -1,6 +1,7 @@
 import React from 'react';
+import styles from "./style.css";
 import Carousel from './carousel.jsx';
-import Popup from './popup.jsx';  
+import Popup from './popup.jsx';
 
 const url = 'http://localhost:3000/';
 
@@ -43,7 +44,7 @@ class OverviewGallery extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className={styles.test}>
         <h1>Overview Gallery</h1>
         {/* <div><Carousel images={this.state.images} /></div> */}
         
