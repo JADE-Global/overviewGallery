@@ -7,3 +7,6 @@ node_modules/
 
 # API keys
 database/config/aws.js
+
+# Test suites
+__snapshots__/
