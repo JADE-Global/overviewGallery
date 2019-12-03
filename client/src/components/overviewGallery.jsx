@@ -26,7 +26,6 @@ class OverviewGallery extends React.Component {
       return result.json();
     })
     .then( result => {
-      console.log(result);
       this.setState({
         images: result
       });

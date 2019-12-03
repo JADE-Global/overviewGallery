@@ -1,17 +1,20 @@
-// import React from 'react';
-// import { shallow } from 'enzyme';
-// import OverviewGallery from './components/overviewGallery.jsx';
+import React from 'react';
+import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
-describe('Examining the syntax of Jest tests', () => {
-  it('sums numbers', () => {
-    expect(1 + 2).toEqual(3);
-    expect(2 + 2).toEqual(4);
+import OverviewGallery from './components/overviewGallery.jsx';
+
+describe('OverviewGallery', () => {
+
+  // temporary test to demonstrate wrapper and mount
+  it(`Should specifically render the text 'Overview Gallery'.`, () => {
+    const wrapper = mount(<OverviewGallery />);
+    expect(wrapper.text()).toMatch('Overview Gallery');
   });
-});
 
-// describe('OverviewGallery', () => {
-//   it('should render something', () => {
-//     const component = shallow(<OverviewGallery />);
-//     expect(component).toMatchSnapshot();
-//   });
-// });
+  it('Should render a component named OverviewGallery.', () => {
+    const component = shallow(<OverviewGallery />);
+    expect(component).toMatchSnapshot();
+  });
+
+});
