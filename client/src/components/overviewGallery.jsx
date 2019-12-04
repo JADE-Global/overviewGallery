@@ -22,6 +22,7 @@ class OverviewGallery extends React.Component {
       images: imgPlaceholders
     };
     this.togglePopup = this.togglePopup.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount () {
@@ -44,9 +45,22 @@ class OverviewGallery extends React.Component {
     //     images: result
     //   });
     // });
+    document.addEventListener('mousedown', this.handleClick, false);
+  }
+
+  componentWillUnmount () {
+    document.removeEventListener('mousedown', this.handleClick, false);
+  }
+
+  handleClick (e) {
+    console.log(e.target);
+    if (this.node.contains(e.target)) {
+      console.log(this.node);
+      return;
+    }
   }
   
-  togglePopup() {
+  togglePopup () {
     this.setState({
       showPopup: !this.state.showPopup
     });
@@ -54,10 +68,9 @@ class OverviewGallery extends React.Component {
 
   render () {
     return (
-      <div className={styles.global}>
+      <div className={styles.global} ref={node => this.node = node}>
         <h1>Overview Gallery</h1>
         <div><Carousel images={this.state.images} /></div>
-        {/* <div className={styles.carousel}></div> */}
         
         <button onClick={this.togglePopup}>A Button</button>
         {this.state.showPopup ? <Popup text='Beware.' closePopup={this.togglePopup.bind(this)} /> : null}
