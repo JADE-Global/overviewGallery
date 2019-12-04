@@ -1,12 +1,12 @@
+# Compiled Files
+client/dist/bundle.js
 
-# Compiled Dirs
-dist/
-
-# Dependency directorys
+# Dependency Files
 node_modules/
 
-# API keys
+# API Keys
 database/config/aws.js
 
-# Test suites
+# Test Suites
 __snapshots__/
+coverage/
