@@ -6,7 +6,7 @@ const aws_url = 'https://yelp-overview-gallery.s3-us-west-1.amazonaws.com/images
 const USER_COUNT = 100;
 const LOCATION_COUNT = 100;
 const IMG_SAMPLE_COUNT = {
-  0: 1,
+  0: 5,
   1: 5,
   2: 10,
   3: 20,

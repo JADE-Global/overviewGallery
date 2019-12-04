@@ -1,0 +1,17 @@
+/*
+  For Yelp style guides, refer to:
+  https://www.yelp.com/styleguide/icons 
+  https://www.yelp.com/styleguide/color
+*/
+
+.global {
+  background-color: #f5f5f5;
+  color: #333333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  position: absolute;
+  top: 20px;
+  z-index: 999;
+}

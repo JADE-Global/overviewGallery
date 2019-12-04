@@ -24,3 +24,10 @@ To set up server, run
 npm run dev:react
 npm run dev:server
 ```
+
+### Test
+
+Test files are under ./spec, run tests with
+```
+npm run test
+```
