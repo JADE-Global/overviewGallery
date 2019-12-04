@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./overviewGallery.css";
-import Carousel from '../carousel/carousel.jsx';
-import Popup from '../popup/popup.jsx';
+import Carousel from './carousel/carousel.jsx';
+import Popup from './popup/popup.jsx';
 
 const url = 'http://localhost:3000/';
 
