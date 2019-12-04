@@ -30,10 +30,11 @@ describe('Carousel', () => {
   });
 
   it('Should fire event handler when image is clicked.', () => {
-    const wrapper = mount(<Carousel images={imgPlaceholders} />);
-    // wrapper.update();
-    expect(wrapper.find('span').length).toBe(5);
-    expect(wrapper.find('#carouselImg').length).toBe(1);
+    const mockFn = jest.fn();
+    const wrapper = mount(<Carousel images={imgPlaceholders} clickHandler={mockFn} />);
+    expect(wrapper.find({id: '#carouselImg-1'}).length).toBe(1);
+    wrapper.find({id: '#carouselImg-1'}).simulate('click');
+    expect(mockFn).toBeCalled();
     wrapper.unmount();
   });
 
