@@ -11,7 +11,7 @@ describe('OverviewGallery', () => {
     expect(component).toMatchSnapshot();
   });
 
-  // temporary test to test event handlers
+  // Temporary test to test event handlers
   it('Should toggle showPopup state when button is clicked.', () => {
     const wrapper = mount(<OverviewGallery />);
     const buttonWrapper = wrapper.find('button');

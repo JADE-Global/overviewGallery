@@ -60,7 +60,7 @@ class OverviewGallery extends React.Component {
     }
   }
   
-  togglePopup () {
+  togglePopup (imgId) {
     this.setState({
       showPopup: !this.state.showPopup
     });
@@ -69,7 +69,7 @@ class OverviewGallery extends React.Component {
   render () {
     return (
       <div className={styles.global} ref={node => this.node = node}>
-        <div><Carousel images={this.state.images} /></div>
+        <div><Carousel images={this.state.images} clickHandler={this.togglePopup} /></div>
         
         <button onClick={this.togglePopup}>A Button</button>
         {this.state.showPopup ? <Popup text='Beware.' closePopup={this.togglePopup.bind(this)} /> : null}
