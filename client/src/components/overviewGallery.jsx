@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from "./style.css";
-import Carousel from './carousel.jsx';
-import Popup from './popup.jsx';
+import styles from "./overviewGallery.css";
+import Carousel from '../carousel/carousel.jsx';
+import Popup from '../popup/popup.jsx';
 
 const url = 'http://localhost:3000/';
 
@@ -53,8 +53,8 @@ class OverviewGallery extends React.Component {
   }
 
   handleClick (e) {
-    console.log(e.target);
     if (this.node.contains(e.target)) {
+      console.log(e.target);
       console.log(this.node);
       return;
     }
@@ -69,7 +69,6 @@ class OverviewGallery extends React.Component {
   render () {
     return (
       <div className={styles.global} ref={node => this.node = node}>
-        <h1>Overview Gallery</h1>
         <div><Carousel images={this.state.images} /></div>
         
         <button onClick={this.togglePopup}>A Button</button>
