@@ -18,6 +18,7 @@ class OverviewGallery extends React.Component {
     super(props);
     this.state = {
       showPopup: false,
+      popupImage: 0,
       // images: []
       images: imgPlaceholders
     };
@@ -60,7 +61,8 @@ class OverviewGallery extends React.Component {
     }
   }
   
-  togglePopup (imgId) {
+  togglePopup (image) {
+    console.log(image);
     this.setState({
       showPopup: !this.state.showPopup
     });

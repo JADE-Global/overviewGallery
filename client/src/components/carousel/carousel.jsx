@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './carousel.css';
+import CarouselItem from '../carouselItem/carouselItem.jsx'
 
 class Carousel extends React.Component {
   constructor (props) {
@@ -10,17 +11,13 @@ class Carousel extends React.Component {
   }
   
   render () {
-    const imageList = this.props.images.map((image) => {
-      return (
-        <span key={image.id} id={`#carouselImg-${image.id}`} onClick={() => this.props.clickHandler(image.id)}>
-          <img src={image.img_url} className={styles.img_style} />
-        </span>
-      );
-    });
-
     return (
       <div className={styles.container}>
-        {imageList}
+        {this.props.images.map((image) => {
+          return (
+            <CarouselItem image={image} clickHandler={this.props.clickHandler} />
+          );
+        })}
       </div>
     );
   }

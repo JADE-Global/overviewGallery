@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  max-height: 225px;
+  overflow-x: scroll;
+  
+  overflow-x: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+.img_style {
+  flex: 1 1 auto; 
+  max-height: 225px;
+  align-items: flex-start;
+}
+
+.img_style + .img_style {
+  margin-left: 2%;
+}
