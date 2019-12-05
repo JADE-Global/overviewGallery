@@ -1,8 +1,9 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import OverviewGallery from '../client/src/components/overviewGallery.jsx';
+import Carousel from '../client/src/components/carousel/carousel.jsx';
+import Popup from '../client/src/components/popup/popup.jsx';
 
 describe('OverviewGallery', () => {
 
@@ -11,12 +12,19 @@ describe('OverviewGallery', () => {
     expect(component).toMatchSnapshot();
   });
 
-  // Temporary test to test event handlers
-  it('Should toggle showPopup state when button is clicked.', () => {
+  it('Should have a child component named Carousel.', () => {
     const wrapper = mount(<OverviewGallery />);
-    const buttonWrapper = wrapper.find('button');
-    buttonWrapper.simulate('click');
-    expect(wrapper.state().showPopup).toBeTruthy();
+    expect(wrapper.find(Carousel).length).toBe(1);
+    wrapper.unmount();
+  });
+
+  it('Should have a child component named Popup appear only after button is clicked.', () => {
+    const wrapper = mount(<OverviewGallery />);
+    expect(wrapper.find(Popup).length).toBe(0);
+    // figure out how to click button
+    // click button
+    wrapper.update();
+    expect(wrapper.find(Popup).length).toBe(1);
     wrapper.unmount();
   });
 

@@ -1,6 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import Carousel from '../client/src/components/carousel/carousel.jsx';
 
@@ -35,6 +34,25 @@ describe('Carousel', () => {
     expect(wrapper.find({id: '#carouselImg-1'}).length).toBe(1);
     wrapper.find({id: '#carouselImg-1'}).simulate('click');
     expect(mockFn).toBeCalled();
+    wrapper.unmount();
+  });
+
+  it('Should fire event handlers when left and right arrows are clicked.', () => {
+    const mockFn = jest.fn();
+    const wrapper = mount(<Carousel images={imgPlaceholders} clickHandler={mockFn} />);
+    wrapper.find({id: '#leftArrow'}).simulate('click');
+    expect(mockFn).toBeCalled();
+    wrapper.find({id: '#rightArrow'}).simulate('click');
+    expect(mockFn).toBeCalled();
+    wrapper.unmount();
+  });
+
+  it('Should change image position if arrows are clicked.', () => {
+    const wrapper = mount(<Carousel images={imgPlaceholders} />);
+    let oldPosition = wrapper.state().position;
+    wrapper.find({id: '#rightArrow'}).simulate('click');
+    wrapper.update();
+    expect(wrapper.state().position).not.toBe(oldPosition);
     wrapper.unmount();
   });
 
