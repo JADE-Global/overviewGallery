@@ -12,6 +12,6 @@
 
 button {
   position: absolute;
-  top: 20px;
-  z-index: 999;
+	top: 20px;
+  /* z-index: 999; */
 }
