@@ -12,7 +12,7 @@ class Carousel extends React.Component {
   }
 
   clickRight () {
-    const element = document.getElementsByClassName(styles.itemContainer)[0];
+    const element = document.getElementsByClassName(styles.item_container)[0];
     element.scrollBy({
         top: 0,
         left: 500,
@@ -24,10 +24,10 @@ class Carousel extends React.Component {
   }
 
   clickLeft () {
-    const element = document.getElementsByClassName(styles.itemContainer)[0];
+    const element = document.getElementsByClassName(styles.item_container)[0];
     element.scrollBy({
         top: 0,
-        right: 500,
+        left: -500,
         behavior: 'smooth'
     });
     this.setState({
@@ -36,10 +36,12 @@ class Carousel extends React.Component {
   }
   
   render () {
+    console.log('position: ' + this.state.position);
     return (
       <div className={styles.container}>
-        <div className={styles.itemContainer}>
-          <button className={styles.button} onClick={() => this.clickRight()}>TINY SCREAMS</button>
+        <button className={`${styles.button} ${styles.left_button}`} onClick={() => this.clickLeft()}>LEFT</button>
+        <button className={`${styles.button} ${styles.right_button}`} onClick={() => this.clickRight()}>RIGHT</button>
+        <div className={styles.item_container}>
           {this.props.images.map((image) => {
             return (
               <CarouselItem key={image.id} image={image} clickHandler={this.props.clickHandler} />

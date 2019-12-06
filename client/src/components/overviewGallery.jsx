@@ -73,8 +73,6 @@ class OverviewGallery extends React.Component {
     return (
       <div className={styles.global} ref={node => this.node = node}>
         <div><Carousel images={this.state.images} clickHandler={this.togglePopup} /></div>
-        
-        <button className={styles.button} onClick={() => this.togglePopup()}>A Button</button>
         {this.state.showPopup ? <Popup text='Beware.' closePopup={this.togglePopup} /> : null}
       </div>
     );
