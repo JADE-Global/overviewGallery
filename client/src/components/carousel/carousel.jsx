@@ -11,18 +11,6 @@ class Carousel extends React.Component {
     this.clickRight = this.clickRight.bind(this);
   }
 
-  clickRight () {
-    const element = document.getElementsByClassName(styles.item_container)[0];
-    element.scrollBy({
-        top: 0,
-        left: 500,
-        behavior: 'smooth'
-    });
-    this.setState({
-      position: this.state.position + 500,
-    });
-  }
-
   clickLeft () {
     const element = document.getElementsByClassName(styles.item_container)[0];
     element.scrollBy({
@@ -30,9 +18,25 @@ class Carousel extends React.Component {
         left: -500,
         behavior: 'smooth'
     });
-    this.setState({
-      position: this.state.position - 500,
+    if (this.state.position >= 500) {
+      this.setState({
+        position: this.state.position - 500,
+      });
+    }
+  }
+
+  clickRight () {
+    const element = document.getElementsByClassName(styles.item_container)[0];
+    element.scrollBy({
+        top: 0,
+        left: 500,
+        behavior: 'smooth'
     });
+    if (this.state.position <= this.props.images.length * 400 - 500) {
+      this.setState({
+        position: this.state.position + 500,
+      });
+    }
   }
   
   render () {
