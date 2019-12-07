@@ -19,10 +19,13 @@ class OverviewGallery extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
+      locationId: null,
+      locationData: [],
+      // images: [],
+      images: imgPlaceholders,
+
       showPopup: false,
       popupImage: null,
-      // images: []
-      images: imgPlaceholders
     };
     this.togglePopup = this.togglePopup.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -48,6 +51,23 @@ class OverviewGallery extends React.Component {
     //     images: result
     //   });
     // });
+
+    fetch(url + 'overviewGallery/' + 2, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .catch( err => {
+      console.error(err);
+    })
+    .then( result => {
+      return result.json();
+    })
+    .then( result => {
+      console.log(result);
+    });
+
     document.addEventListener('mousedown', this.handleClick, false);
   }
 
@@ -58,16 +78,14 @@ class OverviewGallery extends React.Component {
   handleClick (e) {
     e.stopPropagation();
     if (e.target.className === styles_popup.popup) {
-      console.log('!');
-      this.togglePopup(null);
+      this.togglePopup();
     }
   }
   
   togglePopup (image) {
-    console.log(image);
     this.setState({
       showPopup: !this.state.showPopup,
-      popupImage: image ? image : null,
+      popupImage: image || null,
     });
   }
 
