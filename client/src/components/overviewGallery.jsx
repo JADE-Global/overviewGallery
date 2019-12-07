@@ -33,25 +33,7 @@ class OverviewGallery extends React.Component {
 
   componentDidMount () {
     // var randomLocationId = Math.floor(Math.random() * 100 + 1);
-    // fetch(url + 'overviewGallery/sample/' + randomLocationId, {
-    // fetch(url + 'overviewGallery/sample/' + 2, {
-    //   method: 'GET',
-    //   headers: {
-    //     'content-type': 'application/json'
-    //   }
-    // })
-    // .catch( err => {
-    //   console.error(err);
-    // })
-    // .then( result => {
-    //   return result.json();
-    // })
-    // .then( result => {
-    //   this.setState({
-    //     images: result
-    //   });
-    // });
-
+    // fetch(url + 'overviewGallery/' + randomLocationId, {
     fetch(url + 'overviewGallery/' + 2, {
       method: 'GET',
       headers: {
@@ -65,7 +47,11 @@ class OverviewGallery extends React.Component {
       return result.json();
     })
     .then( result => {
-      console.log(result);
+      // console.log(result);
+      this.setState({
+        locationData: result.locationData,
+        images: result.images
+      })
     });
 
     document.addEventListener('mousedown', this.handleClick, false);

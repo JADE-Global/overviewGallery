@@ -46,7 +46,6 @@ let model = {
 
   imagesQuery: function (locationId) {
     let imagesQueryPromise = new Promise((resolve, reject) => {
-      // db.queryAsync(`SELECT * FROM users WHERE locationId = ?`, locationId)
       db.queryAsync(`SELECT i.id AS id,
                             i.img_url AS img_url,
                             i.title AS title,
@@ -66,7 +65,7 @@ let model = {
       })
       .then( results => {
         resolve(results);
-      })
+      });
     });
     return imagesQueryPromise;
   },
