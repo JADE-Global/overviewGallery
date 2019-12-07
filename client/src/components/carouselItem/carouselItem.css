@@ -1,0 +1,10 @@
+.container {
+  margin-right: 3px;
+}
+
+.item {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 400px;
+  height: 300px;
+}
