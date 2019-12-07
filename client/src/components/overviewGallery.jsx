@@ -1,7 +1,9 @@
 import React from 'react';
-import styles from "./overviewGallery.css";
 import Carousel from './carousel/carousel.jsx';
 import Popup from './popup/popup.jsx';
+
+import styles from "./overviewGallery.css";
+import styles_popup from "./popup/popup.css";
 
 const url = 'http://localhost:3000/';
 
@@ -54,10 +56,10 @@ class OverviewGallery extends React.Component {
   }
 
   handleClick (e) {
-    if (this.node.contains(e.target)) {
-      console.log(e.target);
-      console.log(this.node);
-      return;
+    e.stopPropagation();
+    if (e.target.className === styles_popup.popup) {
+      console.log('!');
+      this.togglePopup(null);
     }
   }
   
