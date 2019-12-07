@@ -43,8 +43,10 @@ class Carousel extends React.Component {
     console.log('position: ' + this.state.position);
     return (
       <div className={styles.container}>
-        <button className={`${styles.button} ${styles.left_button}`} onClick={() => this.clickLeft()}>LEFT</button>
-        <button className={`${styles.button} ${styles.right_button}`} onClick={() => this.clickRight()}>RIGHT</button>
+        <div className={styles.scroll_container}>
+          <button className={`${styles.button} ${styles.left_button}`} onClick={() => this.clickLeft()}></button>
+          <button className={`${styles.button} ${styles.right_button}`} onClick={() => this.clickRight()}></button>
+        </div>
         <div className={styles.item_container}>
           {this.props.images.map((image) => {
             return (
