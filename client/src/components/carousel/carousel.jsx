@@ -41,7 +41,6 @@ class Carousel extends React.Component {
   }
   
   render () {
-    console.log('position: ' + this.state.position);
     return (
       <div className={styles.container}>
         <div className={styles.scroll_container}>

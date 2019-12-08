@@ -35,7 +35,6 @@ app.get('/overviewgallery/:locationId', (req, res) => {
   })
   .then( result => {
     data['images'] = result;
-    console.log(data);
     res.status(200).send(data);
   });
 });

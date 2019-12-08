@@ -29,6 +29,8 @@ class OverviewGallery extends React.Component {
     };
     this.togglePopup = this.togglePopup.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.popupSliderHandler = this.popupSliderHandler.bind(this);
+    this.popupGalleryHandler = this.popupGalleryHandler.bind(this);
   }
 
   componentDidMount () {
@@ -47,7 +49,6 @@ class OverviewGallery extends React.Component {
       return result.json();
     })
     .then( result => {
-      // console.log(result);
       this.setState({
         locationData: result.locationData,
         images: result.images
@@ -75,11 +76,21 @@ class OverviewGallery extends React.Component {
     });
   }
 
+  popupSliderHandler (image, direction) { // direction: 0 for left, 1 for right
+
+  }
+
+  popupGalleryHandler (image) {
+    this.setState({
+      popupImage: image || null,
+    });
+  }
+
   render () {
     return (
       <div className={styles.global} ref={node => this.node = node}>
         <div><Carousel images={this.state.images} clickHandler={this.togglePopup} /></div>
-        {this.state.showPopup ? <Popup text='Beware.' closePopup={this.togglePopup} /> : null}
+        {this.state.showPopup ? <Popup closePopup={this.togglePopup} locationData={this.state.locationData} images={this.state.images} popupImage={this.state.popupImage} popupSliderHandler={this.popupSliderHandler} popupGalleryHandler={this.popupGalleryHandler} /> : null}
       </div>
     );
   }
