@@ -30,3 +30,5 @@ const PopupSlider = (props) => {
 };
 
 export default PopupSlider;
+
+// <div className={styles.item} style={{ backgroundImage: `url(${props.image.img_url})` }} ></div>

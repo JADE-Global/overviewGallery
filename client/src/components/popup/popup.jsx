@@ -13,9 +13,21 @@ class Popup extends React.Component {
     return (
       <div className={styles.popup}>
         <div className={styles.popup_inner}>
-          <button onClick={() => this.props.closePopup()}>Close</button>
-          <PopupSlider locationData={this.props.locationData} image={this.props.popupImage} clickHandler={this.props.popupSliderHandler} />
-          <PopupGallery locationData={this.props.locationData} images={this.props.images} clickHandler={this.props.popupGalleryHandler} />
+          
+          
+
+          <div className={styles.container}>
+            <div className={styles.close} onClick={() => this.props.closePopup()}>
+              <span className={styles.close_text}>Close</span> X
+            </div>
+            <div className={styles.slider}>
+              <PopupSlider locationData={this.props.locationData} image={this.props.popupImage} clickHandler={this.props.popupSliderHandler} />
+            </div>
+            <div className={styles.gallery}>
+              <PopupGallery locationData={this.props.locationData} images={this.props.images} clickHandler={this.props.popupGalleryHandler} />
+            </div>
+          </div>
+
         </div>  
       </div>  
     );

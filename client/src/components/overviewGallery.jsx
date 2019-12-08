@@ -77,7 +77,20 @@ class OverviewGallery extends React.Component {
   }
 
   popupSliderHandler (image, direction) { // direction: 0 for left, 1 for right
-
+    var imgIndex = this.state.images.indexOf(image);
+    if (direction === 0) {
+      if (imgIndex > 0) {
+        this.setState({
+          popupImage: this.state.images[imgIndex - 1]
+        });
+      }
+    } else {
+      if (imgIndex < this.state.images.length - 1) {
+        this.setState({
+          popupImage: this.state.images[imgIndex + 1]
+        });
+      }
+    }
   }
 
   popupGalleryHandler (image) {

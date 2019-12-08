@@ -10,8 +10,8 @@
   justify-content: flex-start;
   flex-wrap: nowrap;
 
-  overflow:auto;
-  -ms-overflow-style:none;
+  overflow: auto;
+  -ms-overflow-style: none;
   position: relative;
 }
 

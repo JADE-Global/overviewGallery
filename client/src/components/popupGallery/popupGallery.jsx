@@ -5,7 +5,7 @@ const PopupGallery = (props) => {
 
   const imageList = props.images.map( image => (
     <div key={image.id} onClick={() => props.clickHandler(image)}>
-      {/* <img src={image.img_url} /> */}
+      {/* <img className={styles.image} src={image.img_url} /> */}
     </div>
   ));
 
