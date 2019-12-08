@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from "./popupGallery.css";
 
+import GridIcon from './icons/gridIcon.jsx';
+
 const PopupGallery = (props) => {
 
   const imageList = props.images.map( image => (
@@ -23,7 +25,7 @@ const PopupGallery = (props) => {
         {imageList}
       </div>
       <div className={styles.ui_buttons}>
-        <div className={styles.ui_left}>■ <span className={styles.ui_text}>See All Photos</span></div>
+        <div className={styles.ui_left}><GridIcon /> <span className={styles.ui_text}>See All Photos</span></div>
         <div className={styles.ui_arrow}>></div>
       </div>
     </div>
