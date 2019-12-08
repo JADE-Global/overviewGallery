@@ -103,7 +103,7 @@ class OverviewGallery extends React.Component {
     return (
       <div className={styles.global} ref={node => this.node = node}>
         <div><Carousel images={this.state.images} clickHandler={this.togglePopup} /></div>
-        {this.state.showPopup ? <Popup closePopup={this.togglePopup} locationData={this.state.locationData} images={this.state.images} popupImage={this.state.popupImage} popupSliderHandler={this.popupSliderHandler} popupGalleryHandler={this.popupGalleryHandler} /> : null}
+        {this.state.showPopup ? <Popup closePopup={this.togglePopup} locationData={this.state.locationData[0]} images={this.state.images} popupImage={this.state.popupImage} popupSliderHandler={this.popupSliderHandler} popupGalleryHandler={this.popupGalleryHandler} /> : null}
       </div>
     );
   }

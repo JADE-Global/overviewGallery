@@ -3,18 +3,31 @@ import moment from 'moment';
 import styles from "./popupSlider.css";
 
 const PopupSlider = (props) => {
+  let nameDisplay = (fullname) => {
+    let result = '';
+    let nameItems = fullname.split(' ');
+    for (var i = 0; i < nameItems.length; i++) {
+      if (i === 0) {
+        result += nameItems[i];
+      } else {
+        result += ' ' + nameItems[i][0] + '.';
+      }
+    }
+    return result;
+  }
+
   const businessOwner = (
     <div>
-      {props.locationData.name}
-      From the business owner.
+      <div className={styles.user_name}>{props.image.owner.name}</div>
+      <div className={styles.date}>From the business owner.</div>
     </div>
   );
 
   const regularUser = (
     <div>
-      <div className={styles.user_name}>{props.image.owner.name}</div>
+      <div className={styles.user_name}>{nameDisplay(props.image.owner.name)}</div>
       <div className={styles.user_numbers}>§{props.image.owner.friendCount} ★{props.image.owner.starCount}</div>
-      {(props.image.owner.eliteYear === null) ? null : <div className={styles.user_elite}>{props.image.owner.eliteYear}</div>}
+      {(props.image.owner.eliteYear === null) ? null : <div className={styles.user_elite}>Elite {moment(props.image.owner.eliteYear, "YYYY").format("'YY")}</div>}
     </div>
   );
 

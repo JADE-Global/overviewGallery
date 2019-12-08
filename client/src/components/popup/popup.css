@@ -40,8 +40,8 @@
   grid-template-columns: 7fr 3fr;
   grid-template-rows: 30px auto;
 	grid-template-areas:
-  ".......  close"
-  "slider gallery";
+    ".......  close"
+    "slider gallery";
 }
 
 .slider {

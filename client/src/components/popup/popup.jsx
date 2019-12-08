@@ -24,7 +24,7 @@ class Popup extends React.Component {
               <PopupSlider locationData={this.props.locationData} image={this.props.popupImage} clickHandler={this.props.popupSliderHandler} />
             </div>
             <div className={styles.gallery}>
-              <PopupGallery locationData={this.props.locationData} images={this.props.images} clickHandler={this.props.popupGalleryHandler} />
+              <PopupGallery locationData={this.props.locationData} images={this.props.images} selected={this.props.popupImage} clickHandler={this.props.popupGalleryHandler} />
             </div>
           </div>
 
