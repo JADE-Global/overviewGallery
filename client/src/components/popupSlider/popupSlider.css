@@ -1,7 +1,83 @@
 
-img {
-  height: 300px;
+.description {
+  grid-area: description;
 }
 
+.userinfo {
+  grid-area: userinfo;
+}
 
-/* background-size: contain; */
+.ui_buttons {
+  grid-area: ui_buttons;
+}
+
+.container {
+  background-color: #000000;  
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: relative;
+  padding: 10px;
+
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-gap: 0px;
+  grid-template-rows: auto min-content;
+	grid-template-areas:
+  "description description"
+  "userinfo ui_buttons";
+}
+
+.description {
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  bottom: 0;
+}
+
+.userinfo {
+  padding: 3px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.ui_buttons {
+  background-color: rgba(50, 200, 200, 0.2);
+}
+
+.img_avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 3px;
+}
+
+.title {
+  color: #f5f5f5;
+  font-size: 15px;
+  padding: 2px;
+}
+
+.date {
+  color: #999999;
+  font-size: 12px;
+  padding: 2px;
+}
+
+.user_name {
+  color: #f5f5f5;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 1px;
+}
+
+.user_numbers {
+  color: #f5f5f5;
+  font-size: 14px;
+  padding: 1px;
+}
+
+.user_elite {
+  color: #F15C4F;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 1px;
+}
