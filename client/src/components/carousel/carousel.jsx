@@ -1,6 +1,9 @@
 import React from 'react';
 import styles from './carousel.css';
+
 import CarouselItem from '../carouselItem/carouselItem.jsx'
+import ChevronLeftIcon from './icons/chevronleftIcon.jsx';
+import ChevronRightIcon from './icons/chevronrightIcon.jsx';
 
 class Carousel extends React.Component {
   constructor (props) {
@@ -41,11 +44,12 @@ class Carousel extends React.Component {
   }
   
   render () {
+    const carouselLength = this.props.images.length * 400 - 500;
     return (
       <div className={styles.container}>
         <div className={styles.scroll_container}>
-          <button className={`${styles.button} ${styles.left_button}`} onClick={() => this.clickLeft()}></button>
-          <button className={`${styles.button} ${styles.right_button}`} onClick={() => this.clickRight()}></button>
+          {(this.state.position === 0) ? null : <div className={`${styles.arrowbutton} ${styles.left_button}`} onClick={() => this.clickLeft()}><ChevronLeftIcon /></div>}
+          {(this.state.position >= carouselLength) ? null : <div className={`${styles.arrowbutton} ${styles.right_button}`} onClick={() => this.clickRight()}><ChevronRightIcon /></div>}
         </div>
         <div className={styles.item_container}>
           {this.props.images.map((image) => {

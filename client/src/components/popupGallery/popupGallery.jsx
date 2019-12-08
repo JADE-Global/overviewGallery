@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./popupGallery.css";
 
 import GridIcon from './icons/gridIcon.jsx';
+import ChevronRightIcon from './icons/ChevronRightIcon.jsx';
 
 const PopupGallery = (props) => {
 
@@ -26,7 +27,7 @@ const PopupGallery = (props) => {
       </div>
       <div className={styles.ui_buttons}>
         <div className={styles.ui_left}><GridIcon /> <span className={styles.ui_text}>See All Photos</span></div>
-        <div className={styles.ui_arrow}>></div>
+        <div className={styles.ui_arrow}><ChevronRightIcon /></div>
       </div>
     </div>
   );

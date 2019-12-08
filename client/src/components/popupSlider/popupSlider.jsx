@@ -8,6 +8,8 @@ import ShareIcon from './icons/shareIcon.jsx';
 import ReportIcon from './icons/reportIcon.jsx';
 import ArrowUpIcon from './icons/arrowupIcon.jsx';
 import ArrowDownIcon from './icons/arrowdownIcon.jsx';
+import ChevronLeftIcon from './icons/chevronleftIcon.jsx';
+import ChevronRightIcon from './icons/chevronrightIcon.jsx';
 
 const PopupSlider = (props) => {
   let nameDisplay = (fullname) => {
@@ -40,6 +42,7 @@ const PopupSlider = (props) => {
 
   return (
     <div className={styles.container} style={{ backgroundImage: `url(${props.image.img_url})`}}>
+      
       <div className={styles.description}>
         <div className={styles.title}>{props.image.title}</div>
         <div className={styles.date}>{moment(props.image.createdAt).format('MMMM D, YYYY')}</div>
@@ -55,7 +58,6 @@ const PopupSlider = (props) => {
             </td>
           </tr>
           </tbody></table>
-        
       </div>
       <div className={styles.ui_buttons}>
         <div className={styles.ui_button}><ShareIcon /></div>
@@ -64,14 +66,11 @@ const PopupSlider = (props) => {
         <div className={styles.ui_text}><ArrowDownIcon /> Not Helpful</div>
       </div>
       
-      {/* <div>
-        <button onClick={() => props.clickHandler(props.image, 0)}>LEFT</button>
-        <button onClick={() => props.clickHandler(props.image, 1)}>RIGHT</button>
-      </div> */}
+      {(props.image.id === props.images[0].id) ? null : <div className={`${styles.arrowbutton} ${styles.left_button}`} onClick={() => props.clickHandler(props.image, 0)}><ChevronLeftIcon /></div>}
+      {(props.image.id === props.images[props.images.length - 1].id) ? null : <div className={`${styles.arrowbutton} ${styles.right_button}`} onClick={() => props.clickHandler(props.image, 1)}><ChevronRightIcon /></div>}
+      
     </div>
   );
 };
 
 export default PopupSlider;
-
-// <div className={styles.item} style={{ backgroundImage: `url(${props.image.img_url})` }} ></div>

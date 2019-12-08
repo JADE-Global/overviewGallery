@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const FriendsIcon = () => (
   <svg width={12} height={12} viewBox={'0 0 20 20'} fill={'#F15C4F'}>
@@ -7,6 +7,6 @@ const FriendsIcon = () => (
       <path d="M21.824 13.817l-2.482 5.946c-.69 1.65-2.995 1.65-3.684 0l-2.482-5.946c-.558-1.337.41-2.817 1.842-2.817h4.964c1.432 0 2.4 1.48 1.842 2.817zM17.5 9a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" opacity={0.502} />
     </g>
   </svg>
-)
+);
 
 export default FriendsIcon;

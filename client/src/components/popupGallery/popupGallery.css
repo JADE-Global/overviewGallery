@@ -40,6 +40,7 @@
 
 .title_seeall:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .ui_left {
@@ -64,6 +65,10 @@
   grid-template-columns: auto min-content;
 	grid-template-areas:
     "ui_left ui_arrow";
+}
+
+.ui_buttons:hover {
+  cursor: pointer;
 }
 
 .ui_text:hover {
