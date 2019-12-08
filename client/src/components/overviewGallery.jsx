@@ -21,8 +21,8 @@ class OverviewGallery extends React.Component {
     this.state = {
       locationId: null,
       locationData: [],
-      // images: [],
-      images: imgPlaceholders,
+      images: [],
+      // images: imgPlaceholders,
 
       showPopup: false,
       popupImage: null,

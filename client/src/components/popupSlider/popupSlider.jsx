@@ -4,6 +4,10 @@ import styles from "./popupSlider.css";
 
 import FriendsIcon from './icons/friendsIcon.jsx';
 import ReviewIcon from './icons/reviewIcon.jsx';
+import ShareIcon from './icons/shareIcon.jsx';
+import ReportIcon from './icons/reportIcon.jsx';
+import ArrowUpIcon from './icons/arrowupIcon.jsx';
+import ArrowDownIcon from './icons/arrowdownIcon.jsx';
 
 const PopupSlider = (props) => {
   let nameDisplay = (fullname) => {
@@ -54,6 +58,10 @@ const PopupSlider = (props) => {
         
       </div>
       <div className={styles.ui_buttons}>
+        <div className={styles.ui_button}><ShareIcon /></div>
+        <div className={styles.ui_button}><ReportIcon /></div>
+        <div className={styles.ui_text}><ArrowUpIcon /> Helpful</div>
+        <div className={styles.ui_text}><ArrowDownIcon /> Not Helpful</div>
       </div>
       
       {/* <div>
