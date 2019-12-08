@@ -2,6 +2,9 @@ import React from 'react';
 import moment from 'moment';
 import styles from "./popupSlider.css";
 
+import FriendsIcon from './icons/friendsIcon.jsx';
+import ReviewIcon from './icons/reviewIcon.jsx';
+
 const PopupSlider = (props) => {
   let nameDisplay = (fullname) => {
     let result = '';
@@ -26,13 +29,13 @@ const PopupSlider = (props) => {
   const regularUser = (
     <div>
       <div className={styles.user_name}>{nameDisplay(props.image.owner.name)}</div>
-      <div className={styles.user_numbers}>§{props.image.owner.friendCount} ★{props.image.owner.starCount}</div>
+      <div className={styles.user_numbers}><FriendsIcon /> {props.image.owner.friendCount} <ReviewIcon /> {props.image.owner.starCount}</div>
       {(props.image.owner.eliteYear === null) ? null : <div className={styles.user_elite}>Elite {moment(props.image.owner.eliteYear, "YYYY").format("'YY")}</div>}
     </div>
   );
 
   return (
-    <div className={styles.container} style={{ backgroundImage: `url(${props.image.img_url})` }}>
+    <div className={styles.container} style={{ backgroundImage: `url(${props.image.img_url})`}}>
       <div className={styles.description}>
         <div className={styles.title}>{props.image.title}</div>
         <div className={styles.date}>{moment(props.image.createdAt).format('MMMM D, YYYY')}</div>
