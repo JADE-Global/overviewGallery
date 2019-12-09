@@ -13,9 +13,6 @@ class Popup extends React.Component {
     return (
       <div className={styles.popup}>
         <div className={styles.popup_inner}>
-          
-          
-
           <div className={styles.container}>
             <div className={styles.close} onClick={() => this.props.closePopup()}>
               <span className={styles.close_text}>Close</span> X

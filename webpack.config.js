@@ -1,9 +1,27 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './client/src/index.jsx',
+  // mode: 'development',
+  entry: {
+    main: './client/src/index.jsx',
+    slow: './client/src/components/popupGallery/popupGalleryImageList.jsx',
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Overview Gallery',
+      inject: false,
+      template: require('html-webpack-template'),
+      appMountId: 'overview-gallery',
+      // appMountHtmlSnippet: '<div id="overview-gallery"></div>',
+      // bodyHtmlSnippet: '<div id="overview-gallery"></div>',
+    }),
+  ],
   output: {
-    filename: 'bundle.js',
+    // filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'client/dist'),
   },
   module: {
@@ -31,5 +49,10 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
 };
