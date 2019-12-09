@@ -6,15 +6,54 @@ import ChevronRightIcon from './icons/ChevronRightIcon.jsx';
 
 const PopupGallery = (props) => {
 
-  const imageList = props.images.map( image => (
-    <div key={image.id} onClick={() => props.clickHandler(image)} className={styles.gallery_container}>
-      {(image.id === props.selected.id) ? 
-      <div className={styles.gallery_selected} style={{ backgroundImage: `url(${image.img_url})`}}></div>
-      :
-      <div className={styles.gallery_item} style={{ backgroundImage: `url(${image.img_url})` }}></div>}
-      {/* <img className={styles.image} src={image.img_url} /> */}
-    </div>
-  ));
+  let counter = 0;
+  const imageList = props.images.map( image => {
+    if (props.images.length > 5) {
+      if (counter % 3 === 0) {
+        console.log('full' + counter + image.id);
+        counter++;
+        return (
+          <div key={image.id} onClick={() => props.clickHandler(image)} className={styles.gallery_container}>
+            {
+              (image.id === props.selected.id) ? <div className={styles.gallery_item_selected} style={{ backgroundImage: `url(${image.img_url})`}}></div>
+              : <div className={styles.gallery_item} style={{ backgroundImage: `url(${image.img_url})` }}></div>
+            }
+          </div>
+        );
+      } else if (counter % 3 === 1) {
+        console.log('left' + counter + image.id);
+        counter++;
+        return (
+          <div key={image.id} onClick={() => props.clickHandler(image)} className={styles.gallery_container}>
+            {
+              (image.id === props.selected.id) ? <div className={styles.gallery_item_selected} style={{ backgroundImage: `url(${image.img_url})`}}></div>
+              : <div className={styles.gallery_item} style={{ backgroundImage: `url(${image.img_url})` }}></div>
+            }
+          </div>
+        );
+      } else {
+        console.log('right' + counter + image.id);
+        counter++;
+        return (
+          <div key={image.id} onClick={() => props.clickHandler(image)} className={styles.gallery_container}>
+            {
+              (image.id === props.selected.id) ? <div className={styles.gallery_item_selected} style={{ backgroundImage: `url(${image.img_url})`}}></div>
+              : <div className={styles.gallery_item} style={{ backgroundImage: `url(${image.img_url})` }}></div>
+            }
+          </div>
+        );
+      }
+    } else {
+      return (
+        <div key={image.id} onClick={() => props.clickHandler(image)} className={styles.gallery_container}>
+          {
+            (image.id === props.selected.id) ? <div className={styles.gallery_item_selected} style={{ backgroundImage: `url(${image.img_url})`}}></div>
+            : <div className={styles.gallery_item} style={{ backgroundImage: `url(${image.img_url})` }}></div>
+          }
+        </div>
+      );
+    }
+  });
 
   return (
     <div className={styles.container}>

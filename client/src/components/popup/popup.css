@@ -13,8 +13,8 @@
 
 .popup_inner {
   position: absolute;
-  left: 10%;
-  right: 10%;
+  left: 15%;
+  right: 15%;
   top: 0;
   bottom: 5%;
   margin: auto;
@@ -37,7 +37,7 @@
   height: 100%;
   width: 100%;
   grid-gap: 0px;
-  grid-template-columns: 7fr 3fr;
+  grid-template-columns: 7.5fr 2.5fr;
   grid-template-rows: 30px auto;
 	grid-template-areas:
     ".......  close"
