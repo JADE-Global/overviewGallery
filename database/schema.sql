@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS yelp;
-CREATE DATABASE yelp;
+DROP DATABASE IF EXISTS yelpoverviewgallery;
+CREATE DATABASE yelpoverviewgallery;
 
-USE yelp;
+USE yelpoverviewgallery;
 
 CREATE TABLE users (
   id INT AUTO_INCREMENT NOT NULL,

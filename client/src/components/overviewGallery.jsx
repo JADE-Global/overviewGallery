@@ -1,7 +1,9 @@
 import React from 'react';
-import styles from "./overviewGallery.css";
 import Carousel from './carousel/carousel.jsx';
 import Popup from './popup/popup.jsx';
+
+import styles from "./overviewGallery.css";
+import styles_popup from "./popup/popup.css";
 
 const url = 'http://localhost:3000/';
 
@@ -17,35 +19,42 @@ class OverviewGallery extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
+      locationId: null,
+      locationData: [],
+      images: [],
+      // images: imgPlaceholders,
+
       showPopup: false,
       popupImage: null,
-      // images: []
-      images: imgPlaceholders
     };
     this.togglePopup = this.togglePopup.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.popupSliderHandler = this.popupSliderHandler.bind(this);
+    this.popupGalleryHandler = this.popupGalleryHandler.bind(this);
   }
 
   componentDidMount () {
     // var randomLocationId = Math.floor(Math.random() * 100 + 1);
-    // fetch(url + 'overviewGallery/sample/' + randomLocationId, {
-    // fetch(url + 'overviewGallery/sample/' + 2, {
-    //   method: 'GET',
-    //   headers: {
-    //     'content-type': 'application/json'
-    //   }
-    // })
-    // .catch( err => {
-    //   console.error(err);
-    // })
-    // .then( result => {
-    //   return result.json();
-    // })
-    // .then( result => {
-    //   this.setState({
-    //     images: result
-    //   });
-    // });
+    // fetch(url + 'overviewGallery/' + randomLocationId, {
+    fetch(url + 'overviewGallery/' + 5, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .catch( err => {
+      console.error(err);
+    })
+    .then( result => {
+      return result.json();
+    })
+    .then( result => {
+      this.setState({
+        locationData: result.locationData,
+        images: result.images
+      })
+    });
+
     document.addEventListener('mousedown', this.handleClick, false);
   }
 
@@ -54,18 +63,39 @@ class OverviewGallery extends React.Component {
   }
 
   handleClick (e) {
-    if (this.node.contains(e.target)) {
-      console.log(e.target);
-      console.log(this.node);
-      return;
+    e.stopPropagation();
+    if (e.target.className === styles_popup.popup) {
+      this.togglePopup();
     }
   }
   
   togglePopup (image) {
-    console.log(image);
     this.setState({
       showPopup: !this.state.showPopup,
-      popupImage: image ? image : null,
+      popupImage: image || null,
+    });
+  }
+
+  popupSliderHandler (image, direction) { // direction: 0 for left, 1 for right
+    var imgIndex = this.state.images.indexOf(image);
+    if (direction === 0) {
+      if (imgIndex > 0) {
+        this.setState({
+          popupImage: this.state.images[imgIndex - 1]
+        });
+      }
+    } else {
+      if (imgIndex < this.state.images.length - 1) {
+        this.setState({
+          popupImage: this.state.images[imgIndex + 1]
+        });
+      }
+    }
+  }
+
+  popupGalleryHandler (image) {
+    this.setState({
+      popupImage: image || null,
     });
   }
 
@@ -73,7 +103,7 @@ class OverviewGallery extends React.Component {
     return (
       <div className={styles.global} ref={node => this.node = node}>
         <div><Carousel images={this.state.images} clickHandler={this.togglePopup} /></div>
-        {this.state.showPopup ? <Popup text='Beware.' closePopup={this.togglePopup} /> : null}
+        {this.state.showPopup && <Popup closePopup={this.togglePopup} locationData={this.state.locationData[0]} images={this.state.images} popupImage={this.state.popupImage} popupSliderHandler={this.popupSliderHandler} popupGalleryHandler={this.popupGalleryHandler} />}
       </div>
     );
   }

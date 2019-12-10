@@ -1,5 +1,5 @@
 # Compiled Files
-client/dist/bundle.js
+client/dist/
 
 # Dependency Files
 node_modules/
