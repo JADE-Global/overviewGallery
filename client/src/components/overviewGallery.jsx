@@ -5,7 +5,7 @@ import Popup from './popup/popup.jsx';
 import styles from "./overviewGallery.css";
 import styles_popup from "./popup/popup.css";
 
-const url = 'http://localhost:3000/';
+const url = 'http://localhost:3001/';
 
 const imgPlaceholders = [
   {id: 1, img_url: 'https://i.imgur.com/yuTP4gp.jpg'},

@@ -4,7 +4,7 @@ var controller = require('./controller.js');
 
 const app = express();
 
-app.set('port', 3000);
+app.set('port', 3001);
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/overviewgallery/sample/:locationId', (req, res) => {
