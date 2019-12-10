@@ -1,10 +1,9 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, lazy } from 'react';
 import styles from "./popupGallery.css";
 
 import GridIcon from './icons/gridIcon.jsx';
 import ChevronRightIcon from './icons/ChevronRightIcon.jsx';
 
-// import PopupGalleryImageList from './popupGalleryImageList.jsx';
 const PopupGalleryImageList = React.lazy(() => import('./popupGalleryImageList.jsx'));
 
 const PopupGallery = (props) => {
@@ -14,10 +13,6 @@ const PopupGallery = (props) => {
         Photos for {props.locationData.name}
         <div className={styles.title_seeall}>See All {props.images.length}</div>
       </div>
-      
-      {/* <div className={styles.gallery_wrapper}>
-        <PopupGalleryImageList images={props.images} selected={props.selected} clickHandler={props.clickHandler} />
-      </div> */}
 
       <Suspense fallback={<div className={styles.gallery_wrapper}>Loading...</div>}>
         <div className={styles.gallery_wrapper}>
