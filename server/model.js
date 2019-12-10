@@ -59,7 +59,9 @@ let model = {
                      FROM images i
                      INNER JOIN users u
                      ON i.ownerId = u.id
-                     WHERE i.locationId = ?`, locationId)
+                     WHERE i.locationId = ?
+                     ORDER BY u.starCount
+                     LIMIT 20`, locationId)
       .catch( err => {
         reject(err);
       })

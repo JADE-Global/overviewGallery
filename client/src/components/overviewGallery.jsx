@@ -36,7 +36,7 @@ class OverviewGallery extends React.Component {
   componentDidMount () {
     // var randomLocationId = Math.floor(Math.random() * 100 + 1);
     // fetch(url + 'overviewGallery/' + randomLocationId, {
-    fetch(url + 'overviewGallery/' + 6, {
+    fetch(url + 'overviewGallery/' + 5, {
       method: 'GET',
       headers: {
         'content-type': 'application/json'
