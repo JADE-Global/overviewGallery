@@ -50,11 +50,6 @@ class Carousel extends React.Component {
         <div className={styles.scroll_container}>
           {(this.state.position !== 0) && <div className={`${styles.arrowbutton} ${styles.left_button}`} onClick={() => this.clickLeft()}><ChevronLeftIcon /></div>}
           {(this.state.position < carouselLength) && <div className={`${styles.arrowbutton} ${styles.right_button}`} onClick={() => this.clickRight()}><ChevronRightIcon /></div>}
-        
-
-
-          {/* {(this.state.position === 0) ? null : <div className={`${styles.arrowbutton} ${styles.left_button}`} onClick={() => this.clickLeft()}><ChevronLeftIcon /></div>}
-          {(this.state.position >= carouselLength) ? null : <div className={`${styles.arrowbutton} ${styles.right_button}`} onClick={() => this.clickRight()}><ChevronRightIcon /></div>} */}
         </div>
         <div className={styles.item_container}>
           {this.props.images.map((image) => {
