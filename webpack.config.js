@@ -7,6 +7,7 @@ module.exports = {
   entry: {
     main: './client/src/index.jsx',
     popupgalleryimagelist: './client/src/components/popupGallery/popupGalleryImageList.jsx',
+    popupslider: './client/src/components/popupSlider/popupSlider.jsx',
   },
   plugins: [
     new CleanWebpackPlugin(),
