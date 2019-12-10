@@ -6,7 +6,7 @@ module.exports = {
   // mode: 'development',
   entry: {
     main: './client/src/index.jsx',
-    slow: './client/src/components/popupGallery/popupGalleryImageList.jsx',
+    popupgalleryimagelist: './client/src/components/popupGallery/popupGalleryImageList.jsx',
   },
   plugins: [
     new CleanWebpackPlugin(),

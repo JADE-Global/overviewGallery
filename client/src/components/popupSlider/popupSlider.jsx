@@ -19,7 +19,7 @@ const PopupSlider = (props) => {
       if (i === 0) {
         result += nameItems[i];
       } else {
-        result += ' ' + nameItems[i][0] + '.';
+        result += ` ${nameItems[i][0]}.`;
       }
     }
     return result;
@@ -36,7 +36,7 @@ const PopupSlider = (props) => {
     <div>
       <div className={styles.user_name}>{nameDisplay(props.image.owner.name)}</div>
       <div className={styles.user_numbers}><FriendsIcon /> {props.image.owner.friendCount} <ReviewIcon /> {props.image.owner.starCount}</div>
-      {(props.image.owner.eliteYear === null) ? null : <div className={styles.user_elite}>Elite {moment(props.image.owner.eliteYear, "YYYY").format("'YY")}</div>}
+      {(props.image.owner.eliteYear !== null) && <div className={styles.user_elite}>Elite {moment(props.image.owner.eliteYear, "YYYY").format("'YY")}</div>}
     </div>
   );
 
