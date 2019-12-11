@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import styles from "./popupGallery.css";
 
 import GridIcon from './icons/gridIcon.jsx';
-import ChevronRightIcon from './icons/ChevronRightIcon.jsx';
+import ChevronRightIcon from './icons/chevronrightIcon.jsx';
 
 const PopupGalleryImageList = React.lazy(() => import('./popupGalleryImageList.jsx'));
 

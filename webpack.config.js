@@ -5,9 +5,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   // mode: 'development',
   entry: {
-    main: './client/src/index.jsx',
-    popupgalleryimagelist: './client/src/components/popupGallery/popupGalleryImageList.jsx',
-    popupslider: './client/src/components/popupSlider/popupSlider.jsx',
+    main: path.resolve(__dirname, './client/src/index.jsx'),
+    popupgalleryimagelist: path.resolve(__dirname, './client/src/components/popupGallery/popupGalleryImageList.jsx'),
+    popupslider: path.resolve(__dirname, './client/src/components/popupSlider/popupSlider.jsx'),
   },
   plugins: [
     new CleanWebpackPlugin(),

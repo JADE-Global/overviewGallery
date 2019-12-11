@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const cors = requite('cors');
+const cors = require('cors');
 var controller = require('./controller.js');
 
 const app = express();
