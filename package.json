@@ -9,7 +9,8 @@
     "build:seed": "node ./database/seed.js",
     "dev:react": "webpack -d --watch",
     "dev:server": "nodemon ./server/index.js",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "start": "node ./server/index.js"
   },
   "repository": {
     "type": "git",

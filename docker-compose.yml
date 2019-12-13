@@ -1,0 +1,28 @@
+version: '3.3'
+
+services:
+  server:
+    build: .
+    image: overviewgallery
+    depends_on:
+      - 'db'
+    ports:
+      - '3001:3001'
+    command: bash -c "./wait-for-it.sh db:3306 -s -t 0 -- npm run build:seed && npm run start"
+ 
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'yelpoverviewgallery'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'user'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '3306:3306'
+    volumes: 
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+# Names our volume
+# volumes:
+#   my-db:
