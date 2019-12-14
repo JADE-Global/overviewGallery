@@ -1,11 +1,13 @@
-import React from 'react';
-import Carousel from './carousel/carousel.jsx';
+import React, { Suspense, lazy } from 'react';
+// import Carousel from './carousel/carousel.jsx';
+const Carousel = React.lazy(() => import('./carousel/carousel.jsx'));
 import Popup from './popup/popup.jsx';
 
 import styles from "./overviewGallery.css";
 import styles_popup from "./popup/popup.css";
 
-const url = 'http://localhost:3001/';
+// const url = 'http://localhost:3001/';
+const url = 'http://54.219.170.252/';
 
 const imgPlaceholders = [
   {id: 1, img_url: 'https://i.imgur.com/yuTP4gp.jpg'},
@@ -102,7 +104,12 @@ class OverviewGallery extends React.Component {
   render () {
     return (
       <div className={styles.global} ref={node => this.node = node}>
-        <div><Carousel images={this.state.images} clickHandler={this.togglePopup} /></div>
+        {/* <div><Carousel images={this.state.images} clickHandler={this.togglePopup} /></div> */}
+
+        <Suspense fallback={<div>Loading...</div>}>
+          <div><Carousel images={this.state.images} clickHandler={this.togglePopup} /></div>
+        </Suspense>
+
         {this.state.showPopup && <Popup closePopup={this.togglePopup} locationData={this.state.locationData[0]} images={this.state.images} popupImage={this.state.popupImage} popupSliderHandler={this.popupSliderHandler} popupGalleryHandler={this.popupGalleryHandler} />}
       </div>
     );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import styles from './carousel.css';
 
 import CarouselItem from '../carouselItem/carouselItem.jsx'

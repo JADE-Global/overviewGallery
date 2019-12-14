@@ -32,8 +32,16 @@ let seed = {
 
   seedStart: function() {
     let promise = new Promise((resolve, reject) => {
-      let query = 'source ./schema.sql';
-      db.queryAsync(query)
+      db.queryAsync('SET FOREIGN_KEY_CHECKS = 0')
+      .then(() => {
+        return db.queryAsync('TRUNCATE TABLE images');
+      })
+      .then(() => {
+        return db.queryAsync('TRUNCATE TABLE locations');
+      })
+      .then(() => {
+        return db.queryAsync('TRUNCATE TABLE users');
+      })
       .then(() => {
         resolve();
       })
@@ -122,6 +130,7 @@ seed.seedStart()
 .then(() => {
   return seed.seedUsers();
 })
+// seed.seedUsers()
 .then(() => {
   return seed.seedLocations();
 })
