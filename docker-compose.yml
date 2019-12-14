@@ -3,7 +3,7 @@ version: '3.3'
 services:
   server:
     build: .
-    image: overviewgallery
+    image: elchangtw/overviewgallery-server
     depends_on:
       - 'db'
     ports:
