@@ -5,7 +5,8 @@ client/dist/
 node_modules/
 
 # API Keys
-database/config/aws.js
+database/config/aws.config.js
+database/config/db.config.js
 
 # Test Suites
 __snapshots__/
