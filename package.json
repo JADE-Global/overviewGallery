@@ -9,7 +9,8 @@
     "build:seed": "node ./database/seed.js",
     "dev:react": "webpack -d --watch",
     "dev:server": "nodemon ./server/index.js",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "start": "node ./server/index.js"
   },
   "repository": {
     "type": "git",
@@ -37,7 +38,7 @@
     "jest": "^24.9.0",
     "mysql": "^2.17.1",
     "node-fetch": "^2.6.0",
-    "nodemon": "^2.0.1",
+    "nodemon": "^2.0.2",
     "react-test-renderer": "^16.12.0",
     "style-loader": "^1.0.1",
     "webpack": "^4.41.2",

@@ -7,7 +7,9 @@ const app = express();
 
 app.set('port', 3001);
 app.use(cors());
+
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
+app.use('/:locationId', express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/overviewgallery/sample/:locationId', (req, res) => {
   let locationId = req.params.locationId;

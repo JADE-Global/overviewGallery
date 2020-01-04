@@ -16,6 +16,10 @@
   position: relative;
 }
 
+.item_container:hover {
+  cursor: pointer;
+}
+
 .item_container::-webkit-scrollbar {
   display: none;
 }

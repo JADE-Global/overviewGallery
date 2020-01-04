@@ -3,9 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  // mode: 'development',
+  mode: 'production',
+  // entry: path.resolve(__dirname, './client/src/index.jsx'),
   entry: {
     main: path.resolve(__dirname, './client/src/index.jsx'),
+    carousel: path.resolve(__dirname, './client/src/components/carousel/carousel.jsx'),
     popupgalleryimagelist: path.resolve(__dirname, './client/src/components/popupGallery/popupGalleryImageList.jsx'),
     popupslider: path.resolve(__dirname, './client/src/components/popupSlider/popupSlider.jsx'),
   },
@@ -24,6 +26,7 @@ module.exports = {
     // filename: 'bundle.js',
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'client/dist'),
+    jsonpFunction: 'wpJsonpOverviewGallery',
   },
   module: {
     rules: [

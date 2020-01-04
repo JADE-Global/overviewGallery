@@ -1,10 +1,13 @@
 var mysql = require('mysql');
+var db_config = require('./config/db.config.js');
 
 const options = {
-  user: 'user',
-  password: 'user',
-  database: 'yelpoverviewgallery'
-};
+  host: db_config.host,
+  port: db_config.port,
+  user: db_config.user,
+  password: db_config.password,
+  database: db_config.database,
+}
 
 const db = mysql.createConnection(options);
 db.connect();

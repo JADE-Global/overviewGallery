@@ -116,10 +116,10 @@
   overflow-x: hidden;
 }
 
-.gallery_item:before {
+/* .gallery_item:before {
   counter-increment:div;
   content:counter(div);
-}
+} */
 
 .gallery_item_2l {
   grid-column: col 1 / span 1;
